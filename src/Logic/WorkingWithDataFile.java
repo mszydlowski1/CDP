@@ -1,9 +1,15 @@
+package Logic;
+
+import Data.DataFile;
+import Data.Task;
+
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 
 public class WorkingWithDataFile {
+
     public static void readTasks (DataFile df)
     {
         File dataFile = new File(df.getFileName());  //tworze nowy plik o nazwie dataFile aby móc czytać dane
@@ -18,12 +24,11 @@ public class WorkingWithDataFile {
                 int accessTime = input.nextInt();    //aplikacja czyta termin dostepnosci
                 int operatingTime = input.nextInt();    //aplikacja czyta czas obslugi zadania
                 Task t = new Task (accessTime, operatingTime);    //aplikacja tworzy nowe zadania (to zczytane z pliku)
-                df.setAllTasks(t);    //aplikacja dodaje zadanie do listy obiektu df
+                df.setOneTask(t);    //aplikacja dodaje zadanie do listy obiektu df
             }
         } catch (FileNotFoundException ex)    //obsluga wyjatku, który polega na nie znalezieniu ppliku o nazwie zadanej przez uczytkownika
         {
             System.out.println("Plik o nazwie " + df.getFileName() +" nie zostal znaleziony.");
         }
-
     }
 }

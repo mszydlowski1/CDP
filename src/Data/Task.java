@@ -1,4 +1,8 @@
-public class Task {
+package Data;
+
+import java.util.Comparator;
+
+public class Task implements Comparator<Task> {
     private int accessTime;
     private int operatingTime;
 
@@ -35,4 +39,16 @@ public class Task {
         return haveToReturn.toString();
 
     }
+
+        public int compare (Task first, Task second)
+        {
+            return first.getAccessTime() - second.getAccessTime();
+        }
+
+
+
+//    public int compareTo (Task t)
+//    {
+//        int compareOfAccessTime = accessTime.compareTo(t.getAccessTime()); == t.getAccessTime()) ?
+//    }
 }

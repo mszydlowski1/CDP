@@ -1,3 +1,5 @@
+package Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +8,7 @@ public class DataFile {
     private int numberOfTasks;
     private List<Task> allTasks;
 
-    DataFile (String fileName)
+    public DataFile (String fileName)
     {
         this.fileName = fileName;
         allTasks = new ArrayList<>();
@@ -27,7 +29,20 @@ public class DataFile {
         this.numberOfTasks = numberOfTasks;
     }
 
-    public void setAllTasks (Task t)
+    public List<Task> getAllTasks ()
+    {
+        return allTasks;
+    }
+    public void setAllTasks (List<Task> t)
+    {
+        allTasks = t;
+    }
+
+    public Task getOneTask (int i)
+    {
+        return allTasks.get(i);
+    }
+    public void setOneTask(Task t)
     {
         allTasks.add(t);
     }
