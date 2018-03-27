@@ -2,7 +2,7 @@ package Data;
 
 import java.util.Comparator;
 
-public class Task implements Comparator<Task> {
+public class Task {
     private int accessTime;
     private int operatingTime;
 
@@ -10,17 +10,10 @@ public class Task implements Comparator<Task> {
     {
         return accessTime;
     }
-    public void setAccessTime(int accessTime)
-    {
-        this.accessTime = accessTime;
-    }
+
     public int getOperatingTime()
     {
         return operatingTime;
-    }
-    public void setOperatingTime(int operatingTime)
-    {
-        this.operatingTime = operatingTime;
     }
 
     public Task (int acesTime, int serviceTime)
@@ -29,7 +22,8 @@ public class Task implements Comparator<Task> {
         this.operatingTime = serviceTime;
     }
 
-    public String toString()
+
+    public String toString()    //przeciążenie funkcij toString, w celu wyświetlania danych
     {
         StringBuilder haveToReturn = new StringBuilder();
         haveToReturn.append(accessTime);
@@ -40,15 +34,10 @@ public class Task implements Comparator<Task> {
 
     }
 
-        public int compare (Task first, Task second)
-        {
+    public static class AccessTimeComparator implements Comparator<Task> {
+        public int compare(Task first, Task second)    //przeciazenie funkcij compare, interfejsu  Comparator
+        {                                               //w celu porównania obiektów klasy Task
             return first.getAccessTime() - second.getAccessTime();
         }
-
-
-
-//    public int compareTo (Task t)
-//    {
-//        int compareOfAccessTime = accessTime.compareTo(t.getAccessTime()); == t.getAccessTime()) ?
-//    }
+    }
 }

@@ -7,11 +7,14 @@ public class Application {
 
     public static void main(String[] args)
     {
-        DataFile newDataFile = new DataFile("dataFiles/JACK3.DAT");
-        WorkingWithDataFile.readTasks(newDataFile);
+        DataFile newDataFile = new DataFile("dataFiles/JACK8.DAT");
+        WorkingWithDataFile.readTasks(newDataFile);    //Przypisanie zadań do listy zadań
+        System.out.println("Zadania przed posortowaniem:" + "\n");
         System.out.println(newDataFile);
-        WorkingWithTasks.sortTasks(newDataFile);
+        WorkingWithTasks.sortTasks(newDataFile);    //posortowanie zadań
+        System.out.println("Zadania po posortowaniu:" + "\n");
         System.out.println(newDataFile);
+        System.out.println("CMAX, to:" + "\n");
         System.out.println(WorkingWithTasks.Cmax(newDataFile));
 
     }
