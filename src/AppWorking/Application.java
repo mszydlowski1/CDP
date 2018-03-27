@@ -7,7 +7,7 @@ public class Application {
 
     public static void main(String[] args)
     {
-        DataFile newDataFile = new DataFile("dataFiles/JACK8.DAT");
+        DataFile newDataFile = new DataFile("dataFiles/JACK1.DAT");
         WorkingWithDataFile.readTasks(newDataFile);    //Przypisanie zadań do listy zadań
         System.out.println("Zadania przed posortowaniem:" + "\n");
         System.out.println(newDataFile);

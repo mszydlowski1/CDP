@@ -20,19 +20,28 @@ public class WorkingWithTasks {
 
     public static int Cmax(DataFile df)    //funkcja znajdujaca CMAX na posortowanych już zadaniach
     {
-        int cmax = 0;    //inicjalizacja cmax, na poczatku 0
-
+        int Cmax = 0;
         for (int i = 0; i < df.getNumberOfTasks(); i++)    //funkcja for, przebiegajace przez wszystkie Task danej listy obiektu DataFile
         {
-            if (cmax < df.getOneTask(i).getAccessTime())   //jesli cmax mniejsze od czasu dostepnosci zadania numer i, to
-            {
-                cmax = df.getOneTask(i).getAccessTime()  + df.getOneTask(i).getOperatingTime();   //cmax = czas dostepnosci + czas wykonania zadania i
-            }
-            else    //jesli cmax nie mniejsze, to
-            {
-                cmax = cmax + df.getOneTask(i).getOperatingTime();  //cmax = cmax + czas wykonania zadania nr i
-            }
-        }
-        return cmax;
+            Cmax = Math.max(df.getOneTask(i).getAccessTime(), Cmax) + df.getOneTask(i).getOperatingTime();
+        }                       //CMAX = liczba wieksza z (czas dostepnosci i cmax) plus czas wykonania danego zadania
+        return Cmax;
     }
+
+        //STARE ROZWIAZANIE, TETZ DOBRE, ALE, TO TO NA GÓRZE TO JEST ALGORYTM JACKSONA
+//        int cmax = 0;    //inicjalizacja cmax, na poczatku 0
+//
+//        for (int i = 0; i < df.getNumberOfTasks(); i++)    //funkcja for, przebiegajace przez wszystkie Task danej listy obiektu DataFile
+//        {
+//            if (cmax < df.getOneTask(i).getAccessTime())   //jesli cmax mniejsze od czasu dostepnosci zadania numer i, to
+//            {
+//                cmax = df.getOneTask(i).getAccessTime()  + df.getOneTask(i).getOperatingTime();   //cmax = czas dostepnosci + czas wykonania zadania i
+//            }
+//            else    //jesli cmax nie mniejsze, to
+//            {
+//                cmax = cmax + df.getOneTask(i).getOperatingTime();  //cmax = cmax + czas wykonania zadania nr i
+//            }
+//        }
+//        return cmax;
+
 }
